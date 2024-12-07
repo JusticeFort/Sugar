@@ -7,9 +7,10 @@
 #############################################################
 
 import pygame as pg
+from Soundplay import *
 
 # Window settings
-RES = WIDTH, HEIGHT = 1024, 800
+RES = WIDTH, HEIGHT = 1024, 600
 FPS = 60
 
 # Scaling factor (Pixels per meter)
@@ -29,3 +30,5 @@ START_FLOW = pg.USEREVENT + 1
 FLOW_DELAY = pg.USEREVENT + 2
 LOAD_NEW_LEVEL = pg.USEREVENT + 3
 EXIT_APP = pg.USEREVENT + 4
+
+sounds = ("Pop":["./sound_effect/pop-39222.mp3", 0], "Sugar": ["./sound_effects/cereal-pouring-in-bowl-265404.mp3", 1], "Win": ["./sound_effects/level-win-6416.mp3", 2])

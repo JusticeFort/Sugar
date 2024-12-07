@@ -10,6 +10,7 @@ import pygame as pg
 import pymunk
 from settings import SCALE, HEIGHT, WIDTH
 from math import sqrt
+from Soundplay import *
 
 class Bucket:
     def __init__(self, space, x, y, width, height, needed_sugar):
@@ -73,6 +74,7 @@ class Bucket:
         # Get the bucket's center position
         bucket_center_x = (self.left_wall.a[0] + self.right_wall.a[0]) / 2
         bucket_center_y = (self.left_wall.a[1] + self.left_wall.b[1]) / 2
+        self.sound.play_explosion_sound()
 
         # Apply radial force to each grain
         for grain in grains:
@@ -141,6 +143,7 @@ class Bucket:
         # Check if the grain's position is within the bucket's bounding box
         if left <= grain_pos.x <= right and bottom <= grain_pos.y <= top:
             self.count += 1
+            self.sound.play_collect_sound()
             return True  # Indicate that the grain was collected
 
         return False  # Grain not collected

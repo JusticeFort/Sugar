@@ -18,6 +18,7 @@ import sugar_grain
 import bucket
 import level
 import message_display
+from Soundplay import *
 
 
 class Game:
@@ -31,7 +32,7 @@ class Game:
         self.font = pg.font.SysFont(None, 36)  # Default font, size 36
 
         # Create a Pymunk space with gravity
-        self.current_level = 0 # Start game at 0
+        self.current_level = 4 # Start game at 0
         self.level_complete = False
         self.space = pymunk.Space()
         self.space.gravity = (0, -9)  # Gravity pointing downwards in Pymunk's coordinate system
@@ -156,6 +157,7 @@ class Game:
                     if not self.level_complete and self.check_all_buckets_exploded():
                         self.level_complete = True
                         self.message_display.show_message("Level Complete!", 2)
+                        self.sound.win_sound()
                         pg.time.set_timer(LOAD_NEW_LEVEL, 2000)  # Schedule next level load
                 else:
                     bucket.count_reset()
