@@ -63,6 +63,7 @@ class Bucket:
         self.exploded = False  # Track if the bucket has exploded
 
     def explode(self, grains):
+        #Please work
         """
         Apply a radial force to all grains near the bucket and remove the bucket walls.
         
